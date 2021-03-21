@@ -76,7 +76,7 @@ main_filter = (
     & ~filters.edited
 )
 
-@Client.on_message(
+@app.on_message(
     filters.command("start")
     & filters.private
     & ~ filters.edited
@@ -134,7 +134,7 @@ async def _fetch_and_send_music(message: Message):
         if not message.reply_to_message \
                 and _youtube_video_not_music(info_dict):
             inform = ("This Video is Not Under Music Category, "
-                      "You Can Resend The Link As A Reply "
+                      "You Can Resend The Link As Reply "
                       "To Force Download It !!😁")
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
@@ -142,7 +142,7 @@ async def _fetch_and_send_music(message: Message):
         if info_dict['duration'] > MUSIC_MAX_LENGTH:
             readable_max_length = str(timedelta(seconds=MUSIC_MAX_LENGTH))
             inform = ("This Won't Be Downloaded Because Its Audio Length is "
-                      "Longer Than The Limit `{}` Which is Set By The Owner"
+                      "Longer Than The Limit `{}` Which is Set By The Owner😴"
                       .format(readable_max_length))
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)

@@ -16,7 +16,7 @@ MUSIC_CHATS = [
 MUSIC_USERS = [1234567890]
 MUSIC_DELAY_DELETE_INFORM = 10
 MUSIC_INFORM_AVAILABILITY = (
-    "This is A Music Downloader Bot For The"
+    "This is YouTube Music Downloader Bot For"
     "Members of @SafoTheBot By @I_Am_Only_One_1🔥"
 )
 MUSIC_MAX_LENGTH = 10800
@@ -27,7 +27,7 @@ import asyncio
 from datetime import timedelta
 from urllib.parse import urlparse
 from pyrogram import Client, filters, idle
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from youtube_dl import YoutubeDL
 from PIL import Image
 import ffmpeg
@@ -76,10 +76,40 @@ main_filter = (
     & ~filters.edited
 )
 
+@Client.on_message(
+    filters.command("start")
+    & filters.private
+    & ~ filters.edited
+)
+async def start_(client: Client, message: Message):
+    await message.reply_text(
+        f"""<b>👋🏻 Hi {message.from_user.first_name} !!</b>
+**YouTube Music Downloader Bot** 
+Download Music From YouTube/SoundCloud/Mixcloud!
 
+__Send Any YouTube/SoundCloud Music Link To Download__""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "⚡️ Join Our Group ⚡️", url="https://t.me/safothebot"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "💬 Channel", url="https://t.me/AsmSafone"
+                    ),
+                    InlineKeyboardButton(
+                        "Developer 🧑‍💻", url="https://t.me/I_Am_Only_One_1"
+                    )
+                ]
+            ]
+        )
+    )
+    
 @app.on_message(main_filter & filters.regex("^/ping$"))
 async def ping_pong(_, message):
-    await _reply_and_delete_later(message, "pong",
+    await _reply_and_delete_later(message, "pong😂",
                                   DELAY_DELETE_INFORM)
 
 
@@ -117,7 +147,7 @@ async def _fetch_and_send_music(message: Message):
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return
-        d_status = await message.reply_text("Downloading...", quote=True,
+        d_status = await message.reply_text("Processing...🔊", quote=True,
                                             disable_notification=True)
         ydl.process_info(info_dict)
         audio_file = ydl.prepare_filename(info_dict)

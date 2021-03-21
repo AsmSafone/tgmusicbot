@@ -1,7 +1,7 @@
-"""Download music from YouTube/SoundCloud/Mixcloud, convert thumbnail
-to square thumbnail and upload to Telegram
+"""Download Music From YouTube/SoundCloud/Mixcloud, Convert
+Thumbnail To Square Thumbnail And Upload To Telegram
 
-Send a link as a reply to bypass Music category check
+Send A Link As A Reply To Bypass Music Category Check!
 
 # requirements.txt
 OpenCC
@@ -16,8 +16,8 @@ MUSIC_CHATS = [
 MUSIC_USERS = [1234567890]
 MUSIC_DELAY_DELETE_INFORM = 10
 MUSIC_INFORM_AVAILABILITY = (
-    "This bot only serves the specified group and"
-    "its members in private chat"
+    "This is A Music Downloader Bot For The"
+    "Members of @SafoTheBot By @I_Am_Only_One_1🔥"
 )
 MUSIC_MAX_LENGTH = 10800
 
@@ -103,16 +103,16 @@ async def _fetch_and_send_music(message: Message):
         # send a link as a reply to bypass Music category check
         if not message.reply_to_message \
                 and _youtube_video_not_music(info_dict):
-            inform = ("This video is not under Music category, "
-                      "you can resend the link as a reply "
-                      "to force download it")
+            inform = ("This Video is Not Under Music Category, "
+                      "You Can Resend The Link As A Reply "
+                      "To Force Download It !!😁")
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return
         if info_dict['duration'] > MUSIC_MAX_LENGTH:
             readable_max_length = str(timedelta(seconds=MUSIC_MAX_LENGTH))
-            inform = ("This won't be downloaded because its audio length is "
-                      "longer than the limit `{}` which is set by the bot"
+            inform = ("This Won't Be Downloaded Because Its Audio Length is "
+                      "Longer Than The Limit `{}` Which is Set By The Owner"
                       .format(readable_max_length))
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
@@ -184,7 +184,7 @@ def _get_file_extension_from_url(url):
 
 
 def make_squarethumb(thumbnail, output):
-    """Convert thumbnail to square thumbnail"""
+    """Convert Thumbnail To Square Thumbnail"""
     # https://stackoverflow.com/a/52177551
     original_thumb = Image.open(thumbnail)
     squarethumb = _crop_to_square(original_thumb)

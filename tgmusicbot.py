@@ -85,13 +85,13 @@ async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name} !!</b>
 
-✣ My Name Is 𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 🎵 
+✣ My Name Is **𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝** 🎵 
 
-✣ I Only Works In 𝓛𝓲𝓿𝓮 𝓓𝓙 𝓜𝓾𝓼𝓲𝓬 🎧 
+✣ I Only Works In **Lɪᴠᴇ DJ Mᴜꜱɪᴄ** 🎧 
 
-✣ I Can **Download Music** From **YouTube!🤍**
+✣ I Can **Download Music** From **YouTube!**✅
 
-✣ Send Me Any YouTube Link To Play In Group!✅__""",
+✣ Send Me Any **YouTube Link** To **Play** In Group!!__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -151,7 +151,7 @@ async def _fetch_and_send_music(message: Message):
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return
-        d_status = await message.reply_text("Processing...🔊", quote=True,
+        d_status = await message.reply_text("Uploading Music...🔊", quote=True,
                                             disable_notification=True)
         ydl.process_info(info_dict)
         audio_file = ydl.prepare_filename(info_dict)
@@ -199,7 +199,7 @@ async def _upload_audio(message: Message, info_dict, audio_file):
     make_squarethumb(thumbnail_file, squarethumb_file)
     webpage_url = info_dict['webpage_url']
     title = info_dict['title']
-    caption = f"<b><a href=\"{webpage_url}\">{title}</a></b>"
+    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a> \n✣ Uploaded By: <a href="https://t.me/SafoneMusicBot">𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌</a></b>"
     duration = int(float(info_dict['duration']))
     performer = info_dict['uploader']
     await message.reply_audio(audio_file,

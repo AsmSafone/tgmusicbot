@@ -16,8 +16,8 @@ MUSIC_CHATS = [
 MUSIC_USERS = [1234567890]
 MUSIC_DELAY_DELETE_INFORM = 10
 MUSIC_INFORM_AVAILABILITY = (
-    "This is YouTube Music Downloader Bot For"
-    "Members of @SafoTheBot By @I_Am_Only_One_1🔥"
+    "This is YouTube Music Downloader Bot"
+    "For The Members of @LiveDjMusic Group🔥"
 )
 MUSIC_MAX_LENGTH = 10800
 
@@ -84,20 +84,24 @@ main_filter = (
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name} !!</b>
-**YouTube Music Downloader Bot** 
-Download Music From YouTube/SoundCloud/Mixcloud!
 
-__Send Any YouTube/SoundCloud Music Link To Download__""",
+✣ My Name Is 𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝 🎵 
+
+✣ I Only Works In 𝓛𝓲𝓿𝓮 𝓓𝓙 𝓜𝓾𝓼𝓲𝓬 🎧 
+
+✣ I Can **Download Music** From **YouTube!🤍**
+
+✣ Send Me Any YouTube Link To Play In Group!✅__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚡️ Join Our Group ⚡️", url="https://t.me/safothebot"
+                        "⚡️ Join Our Group ⚡️", url="https://t.me/livedjmusic"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Channel", url="https://t.me/AsmSafone"
+                        "💬 Support", url="https://t.me/safothebot"
                     ),
                     InlineKeyboardButton(
                         "Developer 🧑‍💻", url="https://t.me/I_Am_Only_One_1"
@@ -135,7 +139,7 @@ async def _fetch_and_send_music(message: Message):
                 and _youtube_video_not_music(info_dict):
             inform = ("This Video is Not Under Music Category, "
                       "You Can Resend The Link As Reply "
-                      "To Force Download It !!😁")
+                      "To Force Download & Play It !!😁")
             await _reply_and_delete_later(message, inform,
                                           DELAY_DELETE_INFORM)
             return

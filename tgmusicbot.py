@@ -85,13 +85,13 @@ async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name} !!</b>
 
-✣ My Name Is **𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝** 🎵 
+✣ My Name Is **𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝** 🎵 
 
 ✣ I Only Works In **Lɪᴠᴇ DJ Mᴜꜱɪᴄ** 🎧 
 
-✣ I Can **Download Music** From **YouTube!**✅
+✣ I Can **Download Music** From **YouTube!**
 
-✣ Send Me Any **YouTube Link** To **Play** In Group!!__""",
+✣ Send Me Any **YouTube Link** To **Play** In Group!__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -199,7 +199,7 @@ async def _upload_audio(message: Message, info_dict, audio_file):
     make_squarethumb(thumbnail_file, squarethumb_file)
     webpage_url = info_dict['webpage_url']
     title = info_dict['title']
-    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b>"
+    caption = f"<b>✣ Uploaded By: 𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝🎵 <br>✣ Music: <a href=\"{webpage_url}\">{title}</a></b>"
     duration = int(float(info_dict['duration']))
     performer = info_dict['uploader']
     await message.reply_audio(audio_file,

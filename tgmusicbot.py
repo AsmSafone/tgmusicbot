@@ -91,7 +91,7 @@ async def start_(client: Client, message: Message):
 
 ✣ I Can **Download Music** From **YouTube!**
 
-✣ Send Me Any **YouTube Link** To **Play** In Group!__""",
+✣ Send Any **YouTube Link** To **Play** In Group!""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -199,9 +199,9 @@ async def _upload_audio(message: Message, info_dict, audio_file):
     make_squarethumb(thumbnail_file, squarethumb_file)
     webpage_url = info_dict['webpage_url']
     title = info_dict['title']
-    caption = f"<b><a href=\"{webpage_url}\">{title}</a></b>"
+    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b> 🎵"
     duration = int(float(info_dict['duration']))
-    performer = f"𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌" 
+    performer = f"𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 🎶" 
     await message.reply_audio(audio_file,
                               caption=caption,
                               duration=duration,

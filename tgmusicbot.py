@@ -87,7 +87,7 @@ async def start_(client: Client, message: Message):
 
 ✣ My Name Is **𝙼𝚞𝚜𝚒𝚌 𝙱𝚘𝚝** 🎵 
 
-✣ I Only Works In **Lɪᴠᴇ DJ Mᴜꜱɪᴄ** 🎧 
+✣ I Only Works In **Lɪᴠᴇ Mᴜꜱɪᴄ** 🎧 
 
 ✣ I Can **Download Music** From **YouTube!**
 
@@ -96,7 +96,7 @@ async def start_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "⚡️ Join Our Group ⚡️", url="https://t.me/livedjmusic"
+                        "⚡️ Join Music Group ⚡️", url="https://t.me/livedjmusic"
                     )
                 ],
                 [
@@ -199,9 +199,9 @@ async def _upload_audio(message: Message, info_dict, audio_file):
     make_squarethumb(thumbnail_file, squarethumb_file)
     webpage_url = info_dict['webpage_url']
     title = info_dict['title']
-    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b> 🎵"
+    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b> \n✣ **Uploaded By: [𝚂𝚊𝚏𝚘𝚗𝚎](https://t.me/safonemusic)** 🎶 "
     duration = int(float(info_dict['duration']))
-    performer = f"𝚂𝚊𝚏𝚘𝚗𝚎 𝙼𝚞𝚜𝚒𝚌 🎶" 
+    performer = f"[ꜱᴀꜰᴏɴᴇ ᴍᴜꜱɪᴄ]" 
     await message.reply_audio(audio_file,
                               caption=caption,
                               duration=duration,

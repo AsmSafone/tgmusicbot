@@ -199,7 +199,7 @@ async def _upload_audio(message: Message, info_dict, audio_file):
     make_squarethumb(thumbnail_file, squarethumb_file)
     webpage_url = info_dict['webpage_url']
     title = info_dict['title']
-    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b> \n <b>✣Uploaded By: 𝚂𝚊𝚏𝚘𝚗𝚎</b> 🎶 "
+    caption = f"<b>✣ Music: <a href=\"{webpage_url}\">{title}</a></b> \n<b>✣Uploaded By: 𝚂𝚊𝚏𝚘𝚗𝚎</b> 🎶 "
     duration = int(float(info_dict['duration']))
     performer = f"[ꜱᴀꜰᴏɴᴇ ᴍᴜꜱɪᴄ]" 
     await message.reply_audio(audio_file,
